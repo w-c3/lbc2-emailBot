@@ -9,6 +9,7 @@ import tkinter.font as font
 file_path = ""
 
 def submit():
+    global successText
     senderEmail = entry.get()
     sender = senderEmail.split("@")[0]
     school = entry1.get()
@@ -28,9 +29,8 @@ def submit():
 
     mail.Send()
     print("Successful email sent to " + str(school))
-    if successText.winfo_exists():
-        successText.destroy()
-    successText = customtkinter.CTkLabel(master=frame, text="")
+    successText.pack_forget()
+    successText = customtkinter.CTkLabel(master=frame, text="Successful email sent to " + principalName + " at " + school)
     successText.pack()
     entry1.delete(0, "end")
     entry2.delete(0, "end")
@@ -96,5 +96,8 @@ label5.pack()
 
 file_select_button = customtkinter.CTkButton(master=frame, text="Select File", command=file_select)
 file_select_button.pack(pady=12)
+
+successText = customtkinter.CTkLabel(master=frame, text="")
+successText.pack()
 
 root.mainloop()
