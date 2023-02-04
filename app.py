@@ -4,7 +4,6 @@ from tkinter import filedialog
 import win32com.client as win32
 import re
 import tkinter.font as font
-#import time
 
 file_path = ""
 
@@ -46,9 +45,9 @@ def file_select():
             break
     label6 = customtkinter.CTkLabel(master=frame, text="Selected file is.. " + file)
     label6.pack()
-
+    
 customtkinter.set_appearance_mode("System")
-customtkinter.set_default_color_theme("green")
+customtkinter.set_default_color_theme("dark-blue")
 root = customtkinter.CTk()
 root.title("LBC2 Email Sender")
 root.geometry("450x620")
@@ -103,6 +102,7 @@ successText.pack()
 title_fontTuple = ("Comic Sans MS", 28, "bold")
 fontTuple = ("Comic Sans MS", 20)
 pdf_fontTuple = ("Comic Sans MS", 12)
+
 label.configure(font = title_fontTuple)
 label0.configure(font = fontTuple)
 label1.configure(font = fontTuple)
