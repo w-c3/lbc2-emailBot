@@ -1,4 +1,5 @@
-import tkinter as tk
+import customtkinter
+#import tkinter as tk
 import win32com.client as win32
 import re
 
@@ -9,7 +10,7 @@ def submit():
     principalEmail = entry2.get()
     name = entry3.get()
     gradClass = re.split(":|0", sender, maxsplit=1)[-1].strip()
-    principalName = entry5.get()
+    principalName = entry4.get()
     outlook = win32.Dispatch('outlook.application')
     mail = outlook.CreateItem(0)
     mail.To = str(principalEmail)
@@ -21,52 +22,50 @@ def submit():
     mail.Attachments.Add(attachment)
 
     mail.Send()
-    successText = tk.Label(root, text="Successful email sent to " + str(school))
+    successText = customtkinter.CTkLabel(master=frame, text="")
+    successText = customtkinter.CTkLabel(master=frame, text="Successful email sent to " + str(school))
     successText.pack()
     print("Successful email sent to " + str(school))
 
-root = tk.Tk()
-root.title("Simple Input Application")
-root.geometry("800x600")
+customtkinter.set_appearance_mode("System")
+customtkinter.set_default_color_theme("green")
+root = customtkinter.CTk()
+root.title("LBC2 Email Sender")
+root.geometry("450x400")
+frame = customtkinter.CTkFrame(master=root)
+frame.pack(pady=20, padx=60, fill="both", expand=True)
 
-
-label = tk.Label(root, text="Your Email:")
+label = customtkinter.CTkLabel(master=frame, text="Your Email:")
 label.pack()
 
-entry = tk.Entry(root)
+entry = customtkinter.CTkEntry(master=frame, placeholder_text="ex. me@gmail.com")
 entry.pack()
 
-label1 = tk.Label(root, text="School:")
+label1 = customtkinter.CTkLabel(master=frame, text="School:")
 label1.pack()
 
-entry1 = tk.Entry(root)
+entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="ex. Loyola")
 entry1.pack()
 
-label2 = tk.Label(root, text="Pricipal Email:")
+label2 = customtkinter.CTkLabel(master=frame, text="Pricipal Email:")
 label2.pack()
 
-entry2 = tk.Entry(root)
+entry2 = customtkinter.CTkEntry(master=frame, placeholder_text="ex. smith@school.org")
 entry2.pack()
 
-label3 = tk.Label(root, text="Your Name:")
+label3 = customtkinter.CTkLabel(master=frame, text="Your Name:")
 label3.pack()
 
-entry3 = tk.Entry(root)
+entry3 = customtkinter.CTkEntry(master=frame, placeholder_text="ex. Dylan")
 entry3.pack()
-"""
-label4 = tk.Label(root, text="Graduation Class:")
+
+label4 = customtkinter.CTkLabel(master=frame, text="Name of Principal:")
 label4.pack()
 
-entry4 = tk.Entry(root)
+entry4 = customtkinter.CTkEntry(master=frame, placeholder_text="ex. Ms. Smith")
 entry4.pack()
-"""
-label5 = tk.Label(root, text="Name of Principal (ex. Ms. Smith):")
-label5.pack()
 
-entry5 = tk.Entry(root)
-entry5.pack()
-
-submit_button = tk.Button(root, text="Submit", command=submit)
-submit_button.pack()
+submit_button = customtkinter.CTkButton(master=frame, text="Submit", command=submit)
+submit_button.pack(pady=24)
 
 root.mainloop()
