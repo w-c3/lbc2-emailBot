@@ -7,8 +7,15 @@ import tkinter.font as font
 
 file_path = ""
 
+def checkFile():
+    global file_path
+    if file_path == "":
+        tk.messagebox.showwarning(title= "Ooops", message="You need to add a file... ")
+        file_select()
+
 def submit():
     global successText
+    checkFile()
     senderEmail = entry.get()
     sender = senderEmail.split("@")[0]
     school = entry1.get()
