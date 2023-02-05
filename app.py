@@ -52,6 +52,7 @@ def file_select():
             break
     label6 = customtkinter.CTkLabel(master=frame, text="Selected file is.. " + file)
     label6.pack()
+    label6.configure(font = pdf_fontTuple)
     
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("dark-blue")
