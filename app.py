@@ -7,6 +7,13 @@ import tkinter.font as font
 
 file_path = ""
 
+def checkSchoolEmail():
+        email = entry.get()
+        for i in range (len(email) -1):
+            if "loyolablakefield.org" in email:
+                 return True
+        return False
+
 def checkFile():
     global file_path
     if file_path == "":
@@ -16,6 +23,12 @@ def checkFile():
 def submit():
     global successText
     checkFile()
+    checkEmail = checkFile()
+    if checkEmail == True:
+         pass
+    elif checkEmail == False:
+         tk.messagebox.showwarning(title= "Ooops", message="You must use your Loyola email... ")
+         entry.delete(0, "end")
     senderEmail = entry.get()
     sender = senderEmail.split("@")[0]
     school = entry1.get()
