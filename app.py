@@ -103,8 +103,8 @@ label5.pack()
 file_select_button = customtkinter.CTkButton(master=frame, text="Select File", command=file_select)
 file_select_button.pack(pady=12)
 
-successText = customtkinter.CTkLabel(master=frame, text="")
-successText.pack()
+#successText = customtkinter.CTkLabel(master=frame, text="")
+#successText.pack()
 
 title_fontTuple = ("Comic Sans MS", 28, "bold")
 fontTuple = ("Comic Sans MS", 20)
