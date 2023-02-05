@@ -23,12 +23,7 @@ def checkFile():
 def submit():
     global successText
     checkFile()
-    checkEmail = checkFile()
-    if checkEmail == True:
-         pass
-    elif checkEmail == False:
-         tk.messagebox.showwarning(title= "Ooops", message="You must use your Loyola email... ")
-         entry.delete(0, "end")
+    checkEmail = checkSchoolEmail()
     senderEmail = entry.get()
     sender = senderEmail.split("@")[0]
     school = entry1.get()
@@ -46,14 +41,19 @@ def submit():
     attachment  = file_path
     mail.Attachments.Add(attachment)
 
-    mail.Send()
-    print("Successful email sent to " + str(school))
-    successText.pack_forget()
-    successText = customtkinter.CTkLabel(master=frame, text="Successful email sent to " + principalName + " at " + school)
-    successText.pack()
-    entry1.delete(0, "end")
-    entry2.delete(0, "end")
-    entry4.delete(0, "end")
+    if checkEmail == True:
+         mail.Send()
+         print("Successful email sent to " + str(school))
+         successText.pack_forget()
+         successText = customtkinter.CTkLabel(master=frame, text="Successful email sent to " + principalName + " at " + school)
+         successText.pack()
+         successText.configure(font = pdf_fontTuple)
+         entry1.delete(0, "end")
+         entry2.delete(0, "end")
+         entry4.delete(0, "end")
+    elif checkEmail == False:
+         tk.messagebox.showwarning(title= "Ooops", message="You must use your Loyola email... ")
+         entry.delete(0, "end")
 
 def file_select():
     global file_path
@@ -72,6 +72,7 @@ customtkinter.set_default_color_theme("dark-blue")
 root = customtkinter.CTk()
 root.title("LBC2 Email Sender")
 root.geometry("450x620")
+root.resizable(False, False)
 frame = customtkinter.CTkFrame(master=root)
 frame.pack(pady=20, padx=60, fill="both", expand=True)
 
@@ -117,8 +118,7 @@ label5.pack()
 file_select_button = customtkinter.CTkButton(master=frame, text="Select File", command=file_select)
 file_select_button.pack(pady=12)
 
-#successText = customtkinter.CTkLabel(master=frame, text="")
-#successText.pack()
+successText = customtkinter.CTkLabel(master=frame, text="")
 
 title_fontTuple = ("Comic Sans MS", 28, "bold")
 fontTuple = ("Comic Sans MS", 20)
@@ -131,5 +131,7 @@ label2.configure(font = fontTuple)
 label3.configure(font = fontTuple)
 label4.configure(font = fontTuple)
 label5.configure(font = pdf_fontTuple)
+submit_button.configure(font = pdf_fontTuple)
+file_select_button.configure(font = pdf_fontTuple)
 
 root.mainloop()
