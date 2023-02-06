@@ -19,6 +19,7 @@ def checkFile():
     if file_path == "":
         tk.messagebox.showwarning(title= "Ooops", message="You need to add a file... ")
         file_select()
+        
 
 def submit():
     global successText
