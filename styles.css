@@ -53,7 +53,7 @@ a { text-decoration: none; }
 	content: 'DOWNLOAD';
 }
 .download:after {
-	content: 'version 1.0.0';
+	content: 'version 1.0.1';
 	top: -60px;
 	opacity: 0;
 }
