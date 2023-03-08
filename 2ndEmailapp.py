@@ -36,7 +36,7 @@ def submit():
     mail = outlook.CreateItem(0)
     mail.To = str(principalEmail)
     mail.cc = "cmhale2023@loyolablakefield.org"
-    mail.Subject = 'LBC2 Invite'
+    mail.Subject = 'LBC2 Invite Reminder'
     mail.Body = "Dear " + str(principalName) + ",\nJust a reminder here! (As well as extra information on the prizes!) \n My name is " + str(name) + " and I'm a student at Loyola Blakefield High School. I am a leader of Loyola Blakefield’s cybersecurity program, and I would love to invite your students at " + str(school) + " to our student-created cybersecurity competition, LBC2.\nLBC2 is an incredible opportunity for students interested in computers and cybersecurity, and absolutely no prior experience is required. The best part? The competition is entirely free! We would love to have some of your students attend! There will be many adult and student mentors to assist our competitors and make the day a real learning experience. As I said, we can now announce several raffle prizes, as well as cash prizes that will be annouced soon! We'll be posting these on our Instagram (@loyolablakefieldcyber). In addition, breakfast and lunch offered to those participating. I have attached the flyer with more information about the competition, which is on March 25th, 2023, from 9:00am to 3:00pm on Loyola Blakefield’s campus. Registration ends March 23rd. Register here at our website: https://lbc2.org/\nIf you have any questions at all, please don’t hesitate to reach out. Loyola Blakefield Cyber is excited to extend our outreach and education to you this year! Thank you for your time.\n\nBest,\n" + str(name) + "\nClass of '" + str(gradClass)
 
     attachment  = file_path
