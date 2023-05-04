@@ -1,5 +1,6 @@
 # LBC-EmailBot
-This bot allows us to easily email schools the LBC2 flyer
+
+This bot allows my school to easily send the same invitation email with the same attachment to many different schools quickly.
 
 MAKE SURE BEFORE YOU RUN...
 
@@ -8,3 +9,4 @@ MAKE SURE BEFORE YOU RUN...
     2. Download and extract the zip file 
 
 Now touble click the "app.exe" file and enjoy 
+
